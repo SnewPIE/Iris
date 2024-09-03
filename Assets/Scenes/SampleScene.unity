@@ -1622,6 +1622,7 @@ GameObject:
   - component: {fileID: 2128890539}
   - component: {fileID: 2128890543}
   - component: {fileID: 2128890544}
+  - component: {fileID: 2128890545}
   m_Layer: 0
   m_Name: Player_stand
   m_TagString: Player
@@ -1776,6 +1777,7 @@ MonoBehaviour:
   dashCoolTime: 0
   dashDuration: 0
   dashSpeed: 0
+  ghost: {fileID: 2128890545}
 --- !u!95 &2128890544
 Animator:
   serializedVersion: 5
@@ -1797,6 +1799,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2128890545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128890538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370ccd798b075a94a83c8caf4bd2f4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0.1
+  ghost: {fileID: 2172398755322865541, guid: 673bb5b9179b0bc449f104e4333d3c50, type: 3}
+  makeGhost: 0
+  isflipx: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

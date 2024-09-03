@@ -19,6 +19,9 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
+
+    public Ghost ghost;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +113,7 @@ public class PlayerControl : MonoBehaviour
                 }
                 airDashChance -= 1;
             }
+            ghost.isflipx = spriteRenderer.flipX;
             StartCoroutine(Dash());
         }
 
@@ -150,6 +154,7 @@ public class PlayerControl : MonoBehaviour
     {
         canDash = false;
         isDash = true;
+        ghost.makeGhost = true;
         float originalGravity = rigid.gravityScale;
         rigid.gravityScale = 0f;
         rigid.velocity = new Vector2(transform.localScale.x * dashSpeed * dashDirection, 0f);
@@ -158,6 +163,7 @@ public class PlayerControl : MonoBehaviour
 
         rigid.gravityScale = originalGravity;
         isDash=false;
+        ghost.makeGhost=false;
 
         yield return new WaitForSeconds(dashCoolTime);
         canDash = true;
