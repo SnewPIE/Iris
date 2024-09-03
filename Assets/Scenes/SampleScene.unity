@@ -1772,6 +1772,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12628815f3aa0e42b9654f6091af72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAir: 0
+  dashCoolTime: 0
+  dashDuration: 0
+  dashSpeed: 0
 --- !u!95 &2128890544
 Animator:
   serializedVersion: 5
