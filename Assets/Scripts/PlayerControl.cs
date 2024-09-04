@@ -105,12 +105,12 @@ public class PlayerControl : MonoBehaviour
         //플레이어 스프라이트 x축 회전
         if(h>0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
             dashDirection = 1;
         }
         else if(h<0)
         {
-            spriteRenderer.flipX=true;
+            transform.localScale = new Vector3(-1, 1, 1);
             dashDirection = -1;
         }
     }
@@ -128,7 +128,6 @@ public class PlayerControl : MonoBehaviour
                 }
                 airDashChance -= 1;
             }
-            ghost.isflipx = spriteRenderer.flipX;
             StartCoroutine(Dash());
         }
 
@@ -172,7 +171,7 @@ public class PlayerControl : MonoBehaviour
         ghost.makeGhost = true;
         float originalGravity = rigid.gravityScale;
         rigid.gravityScale = 0f;
-        rigid.velocity = new Vector2(transform.localScale.x * dashSpeed * dashDirection, 0f);
+        rigid.velocity = new Vector2(transform.localScale.x * dashSpeed, 0f);
 
         yield return new WaitForSeconds(dashDuration);
 

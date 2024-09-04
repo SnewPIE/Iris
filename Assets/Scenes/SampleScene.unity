@@ -2130,7 +2130,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2128890542}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1388797135
 SpriteRenderer:
@@ -2200,6 +2200,7 @@ GameObject:
   - component: {fileID: 2128890544}
   - component: {fileID: 2128890545}
   - component: {fileID: 2128890546}
+  - component: {fileID: 2128890547}
   m_Layer: 0
   m_Name: Player_stand
   m_TagString: Player
@@ -2335,7 +2336,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
-  - {fileID: 1388797134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2128890543
@@ -2391,7 +2391,6 @@ MonoBehaviour:
   ghostDelay: 0.1
   ghost: {fileID: 2172398755322865541, guid: 673bb5b9179b0bc449f104e4333d3c50, type: 3}
   makeGhost: 0
-  isflipx: 0
 --- !u!61 &2128890546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2437,9 +2436,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.15}
   m_EdgeRadius: 0
+--- !u!114 &2128890547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128890538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a4a2bd9c5280e4db1346773753b483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1406615029591666009, guid: 4ba1ac2b3d7ecd24083ef01ea032a76e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2128890542}
   - {fileID: 338457951}
+  - {fileID: 1388797134}

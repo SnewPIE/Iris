@@ -8,8 +8,7 @@ public class Ghost : MonoBehaviour
     private float ghostDelaySeconds;
     public GameObject ghost;
     public bool makeGhost = false;
-    public bool isflipx = false;
-    int flip;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +29,8 @@ public class Ghost : MonoBehaviour
             {
                 GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
                 Sprite currentSprite = GetComponent<SpriteRenderer>().sprite;
+                currentGhost.transform.localScale = this.transform.localScale;
                 currentGhost.GetComponent<SpriteRenderer>().sprite = currentSprite;
-                if(isflipx)
-                {
-                    flip = -1;
-                }
-                else
-                {
-                    flip = 1;
-                }
-                currentGhost.transform.localScale = new Vector3 (flip,1,1);
                 ghostDelaySeconds = ghostDelay;
                 Destroy(currentGhost,1.0f);
             }
