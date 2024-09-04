@@ -58,20 +58,35 @@ public class PlayerControl : MonoBehaviour
     {
         PlayerMovement();
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        onAir = false;
 
-        airDashChance = 1;
-        airJumpChance = 1;
-        //땅에 닿으면 점프횟수 초기화
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        onAir = true;
 
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //땅에 트리거가 닿으면 점프/대시 초기화
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            onAir = false;
+            airDashChance = 1;
+            airJumpChance = 1;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //땅에서 떨어질 때
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            onAir = true;
+        }
     }
 
     //플레이어 움직임 관리
