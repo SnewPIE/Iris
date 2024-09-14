@@ -1,46 +1,30 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    float playerSpeed; //플레이어 속도
-    float playerJumpHeight; //플레이어 점프높이
-    int airJumpChance; //플레이어 최대 점프 횟수
-    bool isDash; //대시 사용여부
-    bool canDash;
-    public bool onAir;
-    public float dashCoolTime;
-    public float dashDuration;
-    public float dashSpeed;
-    int dashDirection;
-    int airDashChance;
+    /*
+    float enermySpeed;//적 속도
+    float enermyJumpHeight;//적 점프높이
+    float enermySightLenght;//적 시야 길이
+    float enermySightHeight;//적 시야 높이
+    bool isFind;//플레이어 발견 유무
+
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
 
     public Ghost ghost;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void Awake()
     {
-        playerSpeed = 5.0f;
-        playerJumpHeight = 8.0f;
-        airJumpChance = 1;
-        airDashChance = 1;
-        canDash = true;
-        isDash = false;
-        onAir = false;
-        dashCoolTime = 0.3f;
-        dashDuration = 0.5f;
-        dashSpeed = 10f;
-        dashDirection = 1;
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -58,7 +42,7 @@ public class PlayerControl : MonoBehaviour
     {
         PlayerMovement();
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -68,47 +52,36 @@ public class PlayerControl : MonoBehaviour
     {
 
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //땅에 트리거가 닿으면 점프/대시 초기화
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            onAir = false;
-            airDashChance = 1;
-            airJumpChance = 1;
-        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         //땅에서 떨어질 때
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            onAir = true;
-        }
+
     }
 
     //플레이어 움직임 관리
     private void PlayerMovement()
     {
         //대시중이면 작동안함
-        if(isDash)
-        {
-            return;
-        }
+
         //h=좌우키 입력방향
-        float h = Input.GetAxisRaw("Horizontal");
+
         //대시 미발동시 기본 이동속도
         rigid.velocity = new Vector2(h * playerSpeed, rigid.velocity.y);
-        
+
         //플레이어 스프라이트 x축 회전
-        if(h>0)
+        if (h > 0)
         {
             transform.localScale = new Vector3(1.5f, 1.5f, 1);
             dashDirection = 1;
         }
-        else if(h<0)
+        else if (h < 0)
         {
             transform.localScale = new Vector3(-1.5f, 1.5f, 1);
             dashDirection = -1;
@@ -118,11 +91,11 @@ public class PlayerControl : MonoBehaviour
     //플레이어 대쉬 구현
     private void PlayerDash()
     {
-        if (Input.GetKey(KeyCode.LeftShift)&&canDash)
+        if (Input.GetKey(KeyCode.LeftShift) && canDash)
         {
-            if(onAir)
+            if (onAir)
             {
-                if(airDashChance<=0)
+                if (airDashChance <= 0)
                 {
                     return;
                 }
@@ -138,9 +111,9 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(onAir)
+            if (onAir)
             {
-                if(airJumpChance<=0)
+                if (airJumpChance <= 0)
                 {
                     return;
                 }
@@ -163,7 +136,7 @@ public class PlayerControl : MonoBehaviour
             animator.SetBool("isWalk", true);
         }
     }
-    
+
     private IEnumerator Dash()
     {
         canDash = false;
@@ -176,10 +149,11 @@ public class PlayerControl : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
 
         rigid.gravityScale = originalGravity;
-        isDash=false;
-        ghost.makeGhost=false;
+        isDash = false;
+        ghost.makeGhost = false;
 
         yield return new WaitForSeconds(dashCoolTime);
         canDash = true;
     }
+    */
 }
