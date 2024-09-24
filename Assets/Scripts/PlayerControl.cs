@@ -105,12 +105,12 @@ public class PlayerControl : MonoBehaviour
         //플레이어 스프라이트 x축 회전
         if(h>0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1.0f, 1.0f, 1);
             dashDirection = 1;
         }
         else if(h<0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1);
             dashDirection = -1;
         }
     }
